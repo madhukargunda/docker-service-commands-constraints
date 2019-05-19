@@ -53,6 +53,18 @@ docker service update --constraint-add node.role==worker webapp2
 ```
 
 ## Node Availability
+
+Different status of the nodes
+
+- active : By default when node created its status is active.
+
+- pause  : When node went to pause status , Node runs the exisiting tasks but not allowed for new tasks.
+           This helps us troubel shooting the issues.
+           
+- drain : When node went to drain status ,
+          it will not allow for the new tasks and all exisiting tasks will be rescheduled to different nodes.
+-
+
 ```
 docker service create --name webapp1 --replicas 4 nginx
 
