@@ -117,3 +117,14 @@ account-service-db:
      - back-end
 
 ```
+### Docker Build in LABELS
+
+```
+node.id
+node.hostname
+node.ip
+node.role (manager | worker)
+node.platform.os (linux | windows)
+node.labels (Default empty)
+
+```
