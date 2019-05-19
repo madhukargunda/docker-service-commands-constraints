@@ -63,7 +63,6 @@ Different status of the nodes
            
 - drain : When node went to drain status ,
           it will not allow for the new tasks and all exisiting tasks will be rescheduled to different nodes.
--
 
 ```
 docker service create --name webapp1 --replicas 4 nginx
@@ -95,4 +94,26 @@ docker service ps 8
 docker service create --limit-memory 100M --name 100 bretfisher/stress:256m
 
 docker service ps 100
+```
+
+### Representing the constraints in docker stack file
+
+```
+account-service-db:
+    user: "1000:50"
+    image: mysql
+    ports:
+      - "3306:3306"
+    command: --innodb_use_native_aio=0
+    deploy:
+     replicas: 1
+     placement:
+      constraints:
+       - node.labels.mysql.node == true
+     restart_policy:
+      condition: on-failure
+      delay: 10s
+    networks: 
+     - back-end
+
 ```
