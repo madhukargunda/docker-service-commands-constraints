@@ -147,3 +147,27 @@ docker service logs account_service 2>&1 | grep SEARCH TERM
 
 docker service logs account_service2>&1 | findstr SEARCH TERM
 ```
+### Docker Events
+
+```
+## Docker Events and Viewing Them In Swarm
+
+docker service scale viz=0
+
+docker service ls
+
+docker events
+
+docker service create --name nginx nginx
+
+docker service rm nginx
+
+docker service create
+
+docker service create --limit-memory=100M --name 100 bretfisher/stress:256m
+
+docker service rm 100
+
+docker service scale viz=1
+
+```
