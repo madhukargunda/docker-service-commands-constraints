@@ -128,3 +128,22 @@ node.platform.os (linux | windows)
 node.labels (Default empty)
 
 ```
+### Docker Service Logs
+
+```
+docker service ls
+
+docker service logs account_service
+
+docker service ps account_service
+
+docker service logs TASK ID
+
+docker service logs --tail 5 -- follow account_service
+
+docker service logs --tail 5 --raw --no-trunc account_service
+
+docker service logs account_service 2>&1 | grep SEARCH TERM
+
+docker service logs account_service2>&1 | findstr SEARCH TERM
+```
