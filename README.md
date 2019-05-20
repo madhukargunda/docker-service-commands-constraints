@@ -171,3 +171,10 @@ docker service rm 100
 docker service scale viz=1
 
 ```
+
+### Docker Stats
+
+```
+comming soon
+
+```
